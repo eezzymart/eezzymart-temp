@@ -49,7 +49,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-14 md:py-20 bg-white dark:bg-[#0f1117]">
+    <section className="py-14 md:py-20 bg-[#ECF4FF] dark:bg-[#0f1117]">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-14">

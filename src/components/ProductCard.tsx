@@ -67,12 +67,12 @@ export default function ProductCard({ product }: { product: Product }) {
 
         {/* Quick Action Buttons */}
         <div className="absolute right-3 top-3 flex flex-col gap-2 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 z-10">
-          <button className="w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-[#ff165d] hover:text-white transition-colors duration-200 shadow-md">
+          <button className="w-9 h-9 rounded-full bg-white/90 dark:bg-[#1a1d2e]/90 backdrop-blur-sm flex items-center justify-center text-gray-700 dark:text-gray-200 hover:bg-[#ff165d] hover:text-white transition-colors duration-200 shadow-md dark:shadow-black/30">
             <FiHeart size={16} />
           </button>
           <Link
             href={`/product/${product.slug}`}
-            className="w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-[#ff165d] hover:text-white transition-colors duration-200 shadow-md"
+            className="w-9 h-9 rounded-full bg-white/90 dark:bg-[#1a1d2e]/90 backdrop-blur-sm flex items-center justify-center text-gray-700 dark:text-gray-200 hover:bg-[#ff165d] hover:text-white transition-colors duration-200 shadow-md dark:shadow-black/30"
           >
             <FiEye size={16} />
           </Link>

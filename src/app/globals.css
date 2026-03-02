@@ -7,10 +7,10 @@
   --color-secondary: #ff9a00;
   --color-secondary-dark: #e68a00;
   --color-secondary-light: #ffb740;
-  --color-background: #ffffff;
+  --color-background: #ECF4FF;
   --color-foreground: #171717;
-  --color-gray-light: #f8f9fa;
-  --color-gray: #e5e7eb;
+  --color-gray-light: #E3EDFA;
+  --color-gray: #d5dfe9;
   --color-gray-dark: #6b7280;
   --color-dark: #1a1a2e;
   --color-dark-light: #16213e;
@@ -26,6 +26,17 @@ body {
   color: var(--color-foreground);
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode overrides - ensure white containers pop against the soft blue body */
+html:not(.dark) .bg-white {
+  background-color: #ffffff !important;
+}
+html:not(.dark) .bg-gray-50 {
+  background-color: #F4F8FF !important;
+}
+html:not(.dark) .bg-gray-100 {
+  background-color: #EBF1FB !important;
 }
 
 /* Dark mode */

@@ -149,7 +149,7 @@ export default function Header() {
       </div>
 
       {/* Main Header */}
-      <div className={`bg-white dark:bg-[#1a1d2e] border-b border-gray dark:border-[#2d3148] transition-all duration-300 ${scrolled ? "py-2" : "py-3"}`}>
+      <div className={`bg-white dark:bg-[#141622] border-b border-gray dark:border-[#2d3148] transition-all duration-300 ${scrolled ? "py-2" : "py-3"}`}>
         <div className="container mx-auto px-4 flex items-center justify-between gap-6">
           <button
             className="lg:hidden text-2xl text-foreground hover:text-primary transition"
@@ -180,7 +180,7 @@ export default function Header() {
                   value={searchTerm}
                   onChange={(e) => handleSearchInput(e.target.value)}
                   onFocus={() => { if (searchResults.length > 0) setShowResults(true); }}
-                  className="w-full border-2 border-gray hover:border-[#ff165d]/30 rounded-full py-2.5 px-6 pr-14 focus:outline-none focus:border-[#ff165d] focus:shadow-[0_0_0_3px_rgba(255,22,93,0.1)] bg-gray-light/50 focus:bg-white transition-all text-sm placeholder:text-gray-dark/60"
+                  className="w-full border-2 border-gray dark:border-[#2d3148] hover:border-[#ff165d]/30 rounded-full py-2.5 px-6 pr-14 focus:outline-none focus:border-[#ff165d] focus:shadow-[0_0_0_3px_rgba(255,22,93,0.1)] bg-white dark:bg-[#1a1d2e] focus:bg-white dark:focus:bg-[#252840] transition-all text-sm placeholder:text-gray-dark/60 dark:text-gray-200 dark:placeholder:text-gray-500"
                 />
                 <button
                   type="submit"
