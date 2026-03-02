@@ -50,7 +50,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
   if (!authenticated) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#0f1117] dark:to-[#141622]">
         <div className="flex flex-col items-center gap-4">
           <div className="animate-spin w-10 h-10 border-4 border-[#ff165d] border-t-transparent rounded-full" />
           <p className="text-gray-500 text-sm">Loading dashboard...</p>
@@ -62,7 +62,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   const currentPage = sidebarLinks.find(l => l.href === pathname)?.label || "Dashboard";
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="flex h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#0f1117] dark:to-[#141622]">
       {/* Sidebar Overlay */}
       {sidebarOpen && (
         <div className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden" onClick={() => setSidebarOpen(false)} />
@@ -132,7 +132,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top Header */}
-        <header className="bg-white/80 backdrop-blur-md border-b border-gray-100 px-4 py-3.5 flex items-center gap-4 lg:px-6 sticky top-0 z-30">
+        <header className="bg-white/80 dark:bg-[#1a1d2e]/80 backdrop-blur-md border-b border-gray-100 dark:border-[#2d3148] px-4 py-3.5 flex items-center gap-4 lg:px-6 sticky top-0 z-30">
           <button className="lg:hidden text-gray-600 hover:text-gray-900" onClick={() => setSidebarOpen(true)}>
             <FiMenu size={22} />
           </button>

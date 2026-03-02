@@ -54,22 +54,22 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 dark:bg-[#0f1117]">
         <div className="container mx-auto px-4 py-8">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             <div className="space-y-4">
-              <div className="aspect-square bg-white rounded-2xl animate-pulse" />
+              <div className="aspect-square bg-white dark:bg-[#1a1d2e] rounded-2xl animate-pulse" />
               <div className="flex gap-2">
                 {[...Array(4)].map((_, i) => (
-                  <div key={i} className="w-20 h-20 bg-white rounded-xl animate-pulse" />
+                  <div key={i} className="w-20 h-20 bg-white dark:bg-[#1a1d2e] rounded-xl animate-pulse" />
                 ))}
               </div>
             </div>
             <div className="space-y-4">
-              <div className="h-5 bg-white rounded-full w-24 animate-pulse" />
-              <div className="h-8 bg-white rounded-lg w-3/4 animate-pulse" />
-              <div className="h-10 bg-white rounded-lg w-1/3 animate-pulse" />
-              <div className="h-24 bg-white rounded-lg animate-pulse" />
+              <div className="h-5 bg-white dark:bg-[#1a1d2e] rounded-full w-24 animate-pulse" />
+              <div className="h-8 bg-white dark:bg-[#1a1d2e] rounded-lg w-3/4 animate-pulse" />
+              <div className="h-10 bg-white dark:bg-[#1a1d2e] rounded-lg w-1/3 animate-pulse" />
+              <div className="h-24 bg-white dark:bg-[#1a1d2e] rounded-lg animate-pulse" />
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 dark:bg-[#0f1117] flex items-center justify-center">
         <div className="text-center">
           <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <FiShoppingCart size={36} className="text-gray-300" />
@@ -114,9 +114,9 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0f1117]">
       {/* Breadcrumb */}
-      <div className="bg-white border-b border-gray-100">
+      <div className="bg-white dark:bg-[#1a1d2e] border-b border-gray-100 dark:border-[#2d3148]">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center gap-2 text-sm text-gray-400">
             <Link href="/" className="hover:text-[#ff165d] transition-colors">Home</Link>
@@ -140,7 +140,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
           <div className="space-y-4">
             <div
               ref={imageContainerRef}
-              className="relative aspect-square rounded-2xl overflow-hidden bg-white shadow-sm border border-gray-100 cursor-crosshair group/zoom"
+              className="relative aspect-square rounded-2xl overflow-hidden bg-white dark:bg-[#1a1d2e] shadow-sm border border-gray-100 dark:border-[#2d3148] cursor-crosshair group/zoom"
               onMouseEnter={() => setIsZooming(true)}
               onMouseLeave={() => setIsZooming(false)}
               onMouseMove={handleMouseMove}
@@ -210,7 +210,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
               </Link>
             )}
 
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 leading-tight">
               {product.name}
             </h1>
 
@@ -229,7 +229,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
             </div>
 
             {/* Price */}
-            <div className="flex items-end gap-3 mb-6 pb-6 border-b border-gray-100">
+            <div className="flex items-end gap-3 mb-6 pb-6 border-b border-gray-100 dark:border-[#2d3148]">
               <span className="text-4xl font-bold bg-gradient-to-r from-[#ff165d] to-[#ff4d82] bg-clip-text text-transparent">
                 ৳{product.price.toLocaleString()}
               </span>
@@ -266,14 +266,14 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
             {/* Add to Cart */}
             {product.stock > 0 && (
               <div className="flex items-center gap-4 mb-6">
-                <div className="flex items-center bg-gray-100 rounded-xl overflow-hidden">
+                <div className="flex items-center bg-gray-100 dark:bg-[#252840] rounded-xl overflow-hidden">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
                     className="px-4 py-3 hover:bg-gray-200 transition"
                   >
                     <FiMinus size={16} />
                   </button>
-                  <span className="px-5 py-3 font-bold text-lg min-w-[50px] text-center bg-white">
+                  <span className="px-5 py-3 font-bold text-lg min-w-[50px] text-center bg-white dark:bg-[#1a1d2e] dark:text-gray-100">
                     {quantity}
                   </span>
                   <button
@@ -303,10 +303,10 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
 
             {/* Action Buttons */}
             <div className="flex gap-3 mb-8">
-              <button className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#ff165d] transition border border-gray-200 px-4 py-2.5 rounded-xl hover:border-[#ff165d]/30">
+              <button className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[#ff165d] transition border border-gray-200 dark:border-[#2d3148] px-4 py-2.5 rounded-xl hover:border-[#ff165d]/30">
                 <FiHeart size={16} /> Wishlist
               </button>
-              <button className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#ff165d] transition border border-gray-200 px-4 py-2.5 rounded-xl hover:border-[#ff165d]/30">
+              <button className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[#ff165d] transition border border-gray-200 dark:border-[#2d3148] px-4 py-2.5 rounded-xl hover:border-[#ff165d]/30">
                 <FiShare2 size={16} /> Share
               </button>
             </div>
@@ -330,7 +330,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
 
         {/* Tabs */}
         <div className="mt-12 md:mt-16">
-          <div className="flex gap-1 border-b border-gray-200 mb-8 overflow-x-auto">
+          <div className="flex gap-1 border-b border-gray-200 dark:border-[#2d3148] mb-8 overflow-x-auto">
             {[
               { id: "description", label: "Description" },
               { id: "info", label: "Additional Info" },
@@ -353,7 +353,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
             ))}
           </div>
 
-          <div className="bg-white rounded-2xl p-6 md:p-8 shadow-soft border border-gray-100">
+          <div className="bg-white dark:bg-[#1a1d2e] rounded-2xl p-6 md:p-8 shadow-soft border border-gray-100 dark:border-[#2d3148]">
             {activeTab === "description" && product.description && (
               <div className="text-gray-600 leading-relaxed whitespace-pre-line max-w-4xl">
                 {product.description}

@@ -31,12 +31,12 @@ export default function CartDrawer() {
 
       {/* Drawer */}
       <div
-        className={`fixed right-0 top-0 bottom-0 z-[80] w-full max-w-md bg-white shadow-2xl transform transition-transform duration-400 ease-out flex flex-col ${
+        className={`fixed right-0 top-0 bottom-0 z-[80] w-full max-w-md bg-white dark:bg-[#1a1d2e] shadow-2xl transform transition-transform duration-400 ease-out flex flex-col ${
           isDrawerOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-[#ff165d] to-[#ff4d82]">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-[#2d3148] bg-gradient-to-r from-[#ff165d] to-[#ff4d82]">
           <div className="flex items-center gap-3">
             <FiShoppingBag size={20} className="text-white" />
             <h2 className="text-lg font-bold text-white">Shopping Cart</h2>
@@ -56,10 +56,10 @@ export default function CartDrawer() {
         <div className="flex-1 overflow-y-auto">
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full p-8 text-center">
-              <div className="w-24 h-24 rounded-full bg-gray-50 flex items-center justify-center mb-5">
+              <div className="w-24 h-24 rounded-full bg-gray-50 dark:bg-[#252840] flex items-center justify-center mb-5">
                 <FiShoppingBag size={36} className="text-gray-300" />
               </div>
-              <h3 className="text-lg font-bold text-gray-800 mb-2">Your cart is empty</h3>
+              <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2">Your cart is empty</h3>
               <p className="text-sm text-gray-500 mb-6">Looks like you haven&apos;t added anything yet</p>
               <button
                 onClick={closeDrawer}
@@ -73,11 +73,11 @@ export default function CartDrawer() {
               {items.map((item, index) => (
                 <div
                   key={item._id}
-                  className="flex gap-4 p-3 bg-gray-50 rounded-xl relative group animate-fade-in"
+                  className="flex gap-4 p-3 bg-gray-50 dark:bg-[#141622] rounded-xl relative group animate-fade-in"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {/* Product Image */}
-                  <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-white border border-gray-100">
+                  <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-white dark:bg-[#1a1d2e] border border-gray-100 dark:border-[#2d3148]">
                     {item.image ? (
                       <Image
                         src={item.image}
@@ -95,19 +95,19 @@ export default function CartDrawer() {
 
                   {/* Info */}
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-sm font-semibold text-gray-800 line-clamp-2 mb-1 pr-6">{item.name}</h4>
+                    <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-200 line-clamp-2 mb-1 pr-6">{item.name}</h4>
                     <p className="text-sm font-bold text-[#ff165d] mb-2">৳{item.price.toLocaleString()}</p>
 
                     {/* Quantity Controls */}
                     <div className="flex items-center gap-2">
-                      <div className="flex items-center bg-white rounded-lg border border-gray-200 overflow-hidden">
+                      <div className="flex items-center bg-white dark:bg-[#1a1d2e] rounded-lg border border-gray-200 dark:border-[#2d3148] overflow-hidden">
                         <button
                           onClick={() => updateQuantity(item._id, item.quantity - 1)}
                           className="w-7 h-7 flex items-center justify-center hover:bg-gray-100 transition text-gray-600"
                         >
                           <FiMinus size={12} />
                         </button>
-                        <span className="w-8 text-center text-sm font-bold text-gray-800">{item.quantity}</span>
+                        <span className="w-8 text-center text-sm font-bold text-gray-800 dark:text-gray-200">{item.quantity}</span>
                         <button
                           onClick={() => updateQuantity(item._id, item.quantity + 1)}
                           className="w-7 h-7 flex items-center justify-center hover:bg-gray-100 transition text-gray-600"
@@ -138,11 +138,11 @@ export default function CartDrawer() {
 
         {/* Footer */}
         {items.length > 0 && (
-          <div className="border-t border-gray-100 p-5 bg-white space-y-4">
+          <div className="border-t border-gray-100 dark:border-[#2d3148] p-5 bg-white dark:bg-[#1a1d2e] space-y-4">
             {/* Subtotal */}
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-500">Subtotal ({totalItems} items)</span>
-              <span className="text-xl font-bold text-gray-900">৳{totalPrice.toLocaleString()}</span>
+              <span className="text-xl font-bold text-gray-900 dark:text-gray-100">৳{totalPrice.toLocaleString()}</span>
             </div>
             <p className="text-xs text-gray-400">Shipping & taxes calculated at checkout</p>
 
@@ -159,7 +159,7 @@ export default function CartDrawer() {
               <Link
                 href="/cart"
                 onClick={closeDrawer}
-                className="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-gray-200 transition text-sm"
+                className="w-full bg-gray-100 dark:bg-[#252840] text-gray-700 dark:text-gray-300 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-gray-200 dark:hover:bg-[#2d3148] transition text-sm"
               >
                 View Full Cart
               </Link>

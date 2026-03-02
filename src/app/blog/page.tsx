@@ -48,7 +48,7 @@ export default function BlogPage() {
         <>
           <div className="grid md:grid-cols-3 gap-6">
             {blogs.map((blog) => (
-              <Link key={blog._id} href={`/blog/${blog.slug}`} className="group bg-white border border-gray rounded-xl overflow-hidden hover:shadow-md transition">
+              <Link key={blog._id} href={`/blog/${blog.slug}`} className="group bg-white dark:bg-[#1a1d2e] border border-gray dark:border-[#2d3148] rounded-xl overflow-hidden hover:shadow-md transition">
                 <div className="relative aspect-[16/10] overflow-hidden bg-gray-light">
                   {blog.image ? (
                     <Image src={blog.image} alt={blog.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />

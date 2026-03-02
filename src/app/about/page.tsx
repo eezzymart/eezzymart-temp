@@ -31,24 +31,24 @@ export default function AboutPage() {
               <span className="inline-block text-[#ff165d] text-sm font-semibold tracking-widest uppercase mb-3">Our Journey</span>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
               <div className="w-16 h-1 bg-gradient-to-r from-[#ff165d] to-[#ff9a00] rounded-full mb-6" />
-              <p className="text-gray-600 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
                 EezzyMart was founded with a simple mission: to make online shopping easy, affordable, and enjoyable for everyone. What started as a small idea has grown into a thriving e-commerce platform serving thousands of happy customers.
               </p>
-              <p className="text-gray-600 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
                 We carefully curate our product catalog to ensure every item meets our quality standards. From electronics and fashion to home essentials and more, we offer an extensive range of products to suit every need and budget.
               </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
                 Our team works tirelessly to provide exceptional customer service, fast shipping, and hassle-free returns. We believe that shopping should be stress-free, and we are committed to making that a reality for every customer.
               </p>
               <div className="flex flex-wrap gap-4">
                 {["Quality Products", "Fast Delivery", "24/7 Support"].map((item) => (
-                  <span key={item} className="flex items-center gap-2 text-sm text-gray-700 bg-gray-50 px-4 py-2 rounded-full">
+                  <span key={item} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-[#1a1d2e] px-4 py-2 rounded-full">
                     <FiCheckCircle className="text-[#ff165d]" size={16} /> {item}
                   </span>
                 ))}
               </div>
             </div>
-            <div className="relative h-96 rounded-2xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 shadow-xl">
+            <div className="relative h-96 rounded-2xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#1a1d2e] dark:to-[#141622] border border-gray-200 dark:border-[#2d3148] shadow-xl">
               <Image src="/logo-color-trimmed.png" alt="EezzyMart" fill className="object-contain p-12" />
               <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-[#ff165d]/10 rounded-full blur-[40px]" />
               <div className="absolute -top-4 -left-4 w-32 h-32 bg-[#ff9a00]/10 rounded-full blur-[40px]" />
@@ -92,7 +92,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
             <span className="inline-block text-[#ff165d] text-sm font-semibold tracking-widest uppercase mb-3">What Drives Us</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Values</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">Our Values</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-[#ff165d] to-[#ff9a00] mx-auto rounded-full" />
           </div>
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
@@ -101,11 +101,11 @@ export default function AboutPage() {
               { icon: FiShield, title: "Customer Centric", desc: "Our customers are at the heart of everything we do. We listen, adapt, and continuously improve.", gradient: "from-[#ff9a00] to-amber-400" },
               { icon: FiZap, title: "Innovation", desc: "We embrace technology and innovation to provide a modern, seamless shopping experience.", gradient: "from-emerald-500 to-teal-400" },
             ].map((v, i) => (
-              <div key={i} className="text-center p-8 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group">
+              <div key={i} className="text-center p-8 bg-white dark:bg-[#1a1d2e] border border-gray-100 dark:border-[#2d3148] rounded-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group">
                 <div className={`w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br ${v.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                   <v.icon size={28} className="text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">{v.title}</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-gray-100">{v.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
               </div>
             ))}

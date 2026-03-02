@@ -44,12 +44,12 @@ export default function ContactPage() {
                 { icon: FiMail, title: "Email", info: "support@eezzymart.com", gradient: "from-emerald-500 to-teal-400" },
                 { icon: FiClock, title: "Business Hours", info: "Mon - Fri: 9AM - 6PM\nSat - Sun: 10AM - 4PM", gradient: "from-violet-500 to-purple-500" },
               ].map((item, i) => (
-                <div key={i} className="flex gap-4 p-5 bg-white border border-gray-100 rounded-2xl hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group">
+                <div key={i} className="flex gap-4 p-5 bg-white dark:bg-[#1a1d2e] border border-gray-100 dark:border-[#2d3148] rounded-2xl hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group">
                   <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300`}>
                     <item.icon className="text-white" size={20} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1 text-sm">{item.title}</h3>
+                    <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1 text-sm">{item.title}</h3>
                     <p className="text-sm text-gray-500 whitespace-pre-line">{item.info}</p>
                   </div>
                 </div>
@@ -58,11 +58,11 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div className="md:col-span-2">
-              <div className="bg-white border border-gray-100 rounded-2xl p-6 md:p-8 shadow-sm">
-                <h2 className="text-2xl font-bold mb-2 text-gray-900">Send us a Message</h2>
+              <div className="bg-white dark:bg-[#1a1d2e] border border-gray-100 dark:border-[#2d3148] rounded-2xl p-6 md:p-8 shadow-sm">
+                <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100">Send us a Message</h2>
                 <p className="text-sm text-gray-500 mb-6">Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
                 {submitted && (
-                  <div className="bg-emerald-50 text-emerald-700 px-5 py-4 rounded-xl mb-6 text-sm flex items-center gap-3 border border-emerald-100">
+                    <div className="bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-5 py-4 rounded-xl mb-6 text-sm flex items-center gap-3 border border-emerald-100 dark:border-emerald-800">
                     <FiCheckCircle size={20} />
                     Thank you! Your message has been sent successfully.
                   </div>
