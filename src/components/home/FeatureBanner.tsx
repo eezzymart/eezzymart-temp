@@ -35,7 +35,7 @@ const features = [
 
 export default function FeatureBanner() {
   return (
-    <section className="py-10 md:py-14 bg-[#ECF4FF] dark:bg-[#0f1117] relative overflow-hidden">
+    <section className="py-10 md:py-14 bg-[#C6D7E2] dark:bg-[#141622] relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent" />

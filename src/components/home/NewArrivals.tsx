@@ -57,7 +57,7 @@ export default function NewArrivals() {
   if (products.length === 0) return null;
 
   return (
-    <section className="py-14 md:py-20 bg-gradient-to-b from-white to-gray-50 dark:from-[#0f1117] dark:to-[#141622] relative overflow-hidden">
+    <section className="py-14 md:py-20 bg-[#DEE7ED] dark:bg-[#0f1117] relative overflow-hidden">
       {/* Decorative */}
       <div className="absolute top-20 left-0 w-72 h-72 bg-[#ff9a00]/5 rounded-full blur-[100px]" />
 

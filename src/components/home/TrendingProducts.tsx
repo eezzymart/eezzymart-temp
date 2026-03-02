@@ -29,7 +29,7 @@ export default function TrendingProducts() {
   if (products.length === 0) return null;
 
   return (
-    <section className="py-14 md:py-20 bg-gradient-to-b from-gray-50 to-white dark:from-[#141622] dark:to-[#1a1d2e] relative overflow-hidden">
+    <section className="py-14 md:py-20 bg-[#DEE7ED] dark:bg-[#0f1117] relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#ff165d]/5 rounded-full blur-[150px]" />
 
       <div className="container mx-auto px-4 relative z-10">

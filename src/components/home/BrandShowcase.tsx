@@ -11,7 +11,7 @@ const brands = [
 
 export default function BrandShowcase() {
   return (
-    <section className="py-14 md:py-16 bg-gray-50 dark:bg-[#141622] border-y border-gray-100 dark:border-gray-800">
+    <section className="py-14 md:py-16 bg-[#C6D7E2] dark:bg-[#141622] border-y border-[#B0C1CD] dark:border-gray-800">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-10">

@@ -119,8 +119,8 @@ export default function Header() {
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "shadow-lg" : ""}`}>
       {/* Top Bar */}
-      <div className="bg-gradient-to-r from-[#0a0f1c] via-[#1a1040] to-[#0a0f1c] text-white/80 text-xs overflow-hidden">
-        <div className="container mx-auto px-4 flex justify-between items-center h-9">
+      <div className="bg-gradient-to-r from-[#0a0f1c] via-[#1a1040] to-[#0a0f1c] text-white/80 text-[10px] sm:text-xs overflow-hidden">
+          <div className="container mx-auto px-4 flex justify-between items-center h-8 sm:h-9">
           <div className="hidden sm:flex items-center gap-4">
             <span className="flex items-center gap-1.5 hover:text-white transition-colors">
               <FiPhone size={12} className="text-[#ff165d]" />
@@ -150,7 +150,7 @@ export default function Header() {
 
       {/* Main Header */}
       <div className={`bg-white dark:bg-[#141622] border-b border-gray dark:border-[#2d3148] transition-all duration-300 ${scrolled ? "py-2" : "py-3"}`}>
-        <div className="container mx-auto px-4 flex items-center justify-between gap-6">
+        <div className="container mx-auto px-4 flex items-center justify-between gap-3 md:gap-6">
           <button
             className="lg:hidden text-2xl text-foreground hover:text-primary transition"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -165,7 +165,7 @@ export default function Header() {
               alt="EezzyMart"
               width={200}
               height={56}
-              className={`w-auto transition-all duration-300 ${scrolled ? "h-10" : "h-14"}`}
+              className={`w-auto transition-all duration-300 ${scrolled ? "h-8 md:h-10" : "h-9 md:h-14"}`}
               priority
             />
           </Link>
@@ -275,10 +275,10 @@ export default function Header() {
 
       {/* Mobile Search */}
       {searchOpen && (
-        <div className="md:hidden bg-white dark:bg-[#1a1d2e] border-b border-gray dark:border-[#2d3148] px-4 py-3 animate-fade-in">
+        <div className="md:hidden bg-white dark:bg-[#1a1d2e] border-b border-gray dark:border-[#2d3148] px-4 py-2 animate-fade-in">
           <form onSubmit={handleSearch} className="relative">
             <input type="text" placeholder="Search products..." value={searchTerm} onChange={(e) => handleSearchInput(e.target.value)}
-              className="w-full border-2 border-gray rounded-full py-2.5 px-5 pr-12 focus:outline-none focus:border-primary text-sm" autoFocus />
+              className="w-full border-2 border-gray dark:border-[#2d3148] rounded-full py-2 px-5 pr-12 focus:outline-none focus:border-primary dark:bg-[#1a1d2e] dark:text-gray-200 dark:placeholder:text-gray-500 text-sm" autoFocus />
             <button type="submit" className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center">
               <FiSearch size={16} />
             </button>

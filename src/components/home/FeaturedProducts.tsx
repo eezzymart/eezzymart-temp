@@ -57,7 +57,7 @@ export default function FeaturedProducts() {
   if (products.length === 0) return null;
 
   return (
-    <section className="py-14 md:py-20 bg-white dark:bg-[#0f1117] relative overflow-hidden">
+    <section className="py-14 md:py-20 bg-[#C6D7E2] dark:bg-[#141622] relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#ff165d]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#ff9a00]/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />

@@ -7,10 +7,10 @@
   --color-secondary: #ff9a00;
   --color-secondary-dark: #e68a00;
   --color-secondary-light: #ffb740;
-  --color-background: #ECF4FF;
+  --color-background: #D5E1EA;
   --color-foreground: #171717;
-  --color-gray-light: #E3EDFA;
-  --color-gray: #d5dfe9;
+  --color-gray-light: #C6D4DE;
+  --color-gray: #B0C1CD;
   --color-gray-dark: #6b7280;
   --color-dark: #1a1a2e;
   --color-dark-light: #16213e;
@@ -33,10 +33,10 @@ html:not(.dark) .bg-white {
   background-color: #ffffff !important;
 }
 html:not(.dark) .bg-gray-50 {
-  background-color: #F4F8FF !important;
+  background-color: #DEE7ED !important;
 }
 html:not(.dark) .bg-gray-100 {
-  background-color: #EBF1FB !important;
+  background-color: #D0DBE3 !important;
 }
 
 /* Dark mode */

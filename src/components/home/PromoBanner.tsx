@@ -5,7 +5,7 @@ import { FiArrowRight, FiPercent, FiZap } from "react-icons/fi";
 
 export default function PromoBanner() {
   return (
-    <section className="py-14 md:py-20 bg-[#ECF4FF] dark:bg-[#0f1117] transition-colors duration-300">
+    <section className="py-14 md:py-20 bg-[#C6D7E2] dark:bg-[#141622] transition-colors duration-300">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {/* Banner 1 - Big Sale */}

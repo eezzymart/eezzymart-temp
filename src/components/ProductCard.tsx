@@ -29,7 +29,7 @@ export default function ProductCard({ product }: { product: Product }) {
   const rating = product.ratings || 4.5;
 
   return (
-    <div className="group bg-white dark:bg-[#1a1d2e] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-800 relative">
+    <div className="group bg-white dark:bg-[#1a1d2e] rounded-2xl overflow-hidden shadow-[0_2px_12px_rgba(100,160,180,0.15)] hover:shadow-[0_8px_30px_rgba(100,160,180,0.22)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_8px_25px_rgba(0,0,0,0.4)] transition-all duration-500 border border-[#b8cdd8] dark:border-gray-800 relative">
       {/* Image Container */}
       <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
         <Link href={`/product/${product.slug}`}>
