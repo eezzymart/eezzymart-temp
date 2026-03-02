@@ -78,7 +78,7 @@ export default function OrdersPage() {
       <h2 className="text-2xl font-bold mb-6">Orders</h2>
 
       {/* Filters */}
-      <div className="bg-white rounded-xl p-4 shadow-sm mb-4 flex flex-col sm:flex-row gap-3">
+      <div className="bg-white dark:bg-[#1a1d2e] rounded-xl p-4 shadow-sm mb-4 flex flex-col sm:flex-row gap-3">
         <div className="relative flex-1 max-w-md">
           <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           <input
@@ -86,13 +86,13 @@ export default function OrdersPage() {
             placeholder="Search by order #..."
             value={search}
             onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-            className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full pl-10 pr-4 py-2 border dark:border-[#2d3148] rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-[#141622] dark:text-gray-100"
           />
         </div>
         <select
           value={statusFilter}
           onChange={(e) => { setStatusFilter(e.target.value); setPage(1); }}
-          className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+          className="px-3 py-2 border dark:border-[#2d3148] rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-[#141622] dark:text-gray-100"
         >
           <option value="">All Status</option>
           <option value="pending">Pending</option>
@@ -104,10 +104,10 @@ export default function OrdersPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+      <div className="bg-white dark:bg-[#1a1d2e] rounded-xl shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="bg-gray-50">
+            <thead className="bg-gray-50 dark:bg-[#141622] dark:text-gray-400">
               <tr className="text-left">
                 <th className="px-4 py-3 font-medium">Order #</th>
                 <th className="px-4 py-3 font-medium">Customer</th>
@@ -125,7 +125,7 @@ export default function OrdersPage() {
                 <tr><td colSpan={7} className="text-center py-8 text-gray-400">No orders found</td></tr>
               ) : (
                 orders.map((o) => (
-                  <tr key={o._id} className="border-t hover:bg-gray-50">
+                  <tr key={o._id} className="border-t dark:border-[#2d3148] hover:bg-gray-50 dark:hover:bg-[#252840]/50">
                     <td className="px-4 py-3 font-medium">{o.orderNumber}</td>
                     <td className="px-4 py-3">
                       <div>
@@ -149,7 +149,7 @@ export default function OrdersPage() {
                         <option value="cancelled">Cancelled</option>
                       </select>
                     </td>
-                    <td className="px-4 py-3 text-gray-500">{new Date(o.createdAt).toLocaleDateString()}</td>
+                    <td className="px-4 py-3 text-gray-500 dark:text-gray-400">{new Date(o.createdAt).toLocaleDateString()}</td>
                     <td className="px-4 py-3">
                       <button onClick={() => setSelectedOrder(o)} className="text-blue-500 hover:bg-blue-50 p-1.5 rounded">
                         <FiEye size={16} />
@@ -163,14 +163,14 @@ export default function OrdersPage() {
         </div>
 
         {totalPages > 1 && (
-          <div className="flex items-center justify-between px-4 py-3 border-t text-sm">
-            <span className="text-gray-500">Total: {total} orders</span>
+          <div className="flex items-center justify-between px-4 py-3 border-t dark:border-[#2d3148] text-sm">
+            <span className="text-gray-500 dark:text-gray-400">Total: {total} orders</span>
             <div className="flex gap-1">
               {Array.from({ length: Math.min(totalPages, 10) }, (_, i) => (
                 <button
                   key={i}
                   onClick={() => setPage(i + 1)}
-                  className={`px-3 py-1 rounded ${page === i + 1 ? "bg-primary text-white" : "hover:bg-gray-100"}`}
+                  className={`px-3 py-1 rounded ${page === i + 1 ? "bg-primary text-white" : "hover:bg-gray-100 dark:hover:bg-[#252840]"}`}
                 >
                   {i + 1}
                 </button>
@@ -183,10 +183,10 @@ export default function OrdersPage() {
       {/* Order Detail Modal */}
       {selectedOrder && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between p-6 border-b">
-              <h3 className="text-lg font-semibold">Order #{selectedOrder.orderNumber}</h3>
-              <button onClick={() => setSelectedOrder(null)} className="text-gray-400 hover:text-gray-600">✕</button>
+          <div className="bg-white dark:bg-[#1a1d2e] rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between p-6 border-b dark:border-[#2d3148]">
+              <h3 className="text-lg font-semibold dark:text-gray-100">Order #{selectedOrder.orderNumber}</h3>
+              <button onClick={() => setSelectedOrder(null)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">✕</button>
             </div>
 
             <div className="p-6 space-y-6">
@@ -195,32 +195,32 @@ export default function OrdersPage() {
                 <span className={`px-3 py-1 rounded-full text-sm font-medium ${statusColor(selectedOrder.status)}`}>
                   {selectedOrder.status.charAt(0).toUpperCase() + selectedOrder.status.slice(1)}
                 </span>
-                <span className="text-sm text-gray-500">{new Date(selectedOrder.createdAt).toLocaleString()}</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400">{new Date(selectedOrder.createdAt).toLocaleString()}</span>
               </div>
 
               {/* Customer Info */}
-              <div className="bg-gray-50 rounded-lg p-4">
-                <h4 className="font-medium mb-2">Customer Details</h4>
+              <div className="bg-gray-50 dark:bg-[#141622] rounded-lg p-4">
+                <h4 className="font-medium mb-2 dark:text-gray-200">Customer Details</h4>
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div><span className="text-gray-500">Name:</span> {selectedOrder.customer.name}</div>
-                  <div><span className="text-gray-500">Email:</span> {selectedOrder.customer.email}</div>
-                  <div><span className="text-gray-500">Phone:</span> {selectedOrder.customer.phone}</div>
-                  <div><span className="text-gray-500">City:</span> {selectedOrder.customer.city}</div>
-                  <div className="col-span-2"><span className="text-gray-500">Address:</span> {selectedOrder.customer.address}</div>
+                  <div><span className="text-gray-500 dark:text-gray-400">Name:</span> {selectedOrder.customer.name}</div>
+                  <div><span className="text-gray-500 dark:text-gray-400">Email:</span> {selectedOrder.customer.email}</div>
+                  <div><span className="text-gray-500 dark:text-gray-400">Phone:</span> {selectedOrder.customer.phone}</div>
+                  <div><span className="text-gray-500 dark:text-gray-400">City:</span> {selectedOrder.customer.city}</div>
+                  <div className="col-span-2"><span className="text-gray-500 dark:text-gray-400">Address:</span> {selectedOrder.customer.address}</div>
                 </div>
               </div>
 
               {/* Items */}
               <div>
-                <h4 className="font-medium mb-2">Order Items</h4>
+                <h4 className="font-medium mb-2 dark:text-gray-200">Order Items</h4>
                 <div className="space-y-2">
                   {selectedOrder.items.map((item, i) => (
-                    <div key={i} className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                    <div key={i} className="flex items-center justify-between bg-gray-50 dark:bg-[#141622] rounded-lg p-3">
                       <div className="flex items-center gap-3">
                         {item.image && <img src={item.image} alt="" className="w-10 h-10 rounded object-cover" />}
                         <div>
                           <p className="font-medium text-sm">{item.name}</p>
-                          <p className="text-xs text-gray-500">Qty: {item.quantity}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400">Qty: {item.quantity}</p>
                         </div>
                       </div>
                       <span className="font-medium text-sm">৳{(item.price * item.quantity).toLocaleString()}</span>
@@ -230,20 +230,20 @@ export default function OrdersPage() {
               </div>
 
               {/* Totals */}
-              <div className="border-t pt-4 space-y-1 text-sm">
-                <div className="flex justify-between"><span className="text-gray-500">Subtotal</span><span>৳{selectedOrder.subtotal.toLocaleString()}</span></div>
-                <div className="flex justify-between"><span className="text-gray-500">Shipping</span><span>৳{selectedOrder.shipping.toLocaleString()}</span></div>
-                <div className="flex justify-between font-bold text-base pt-1 border-t"><span>Total</span><span>৳{selectedOrder.total.toLocaleString()}</span></div>
+              <div className="border-t dark:border-[#2d3148] pt-4 space-y-1 text-sm">
+                <div className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Subtotal</span><span>৳{selectedOrder.subtotal.toLocaleString()}</span></div>
+                <div className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Shipping</span><span>৳{selectedOrder.shipping.toLocaleString()}</span></div>
+                <div className="flex justify-between font-bold text-base pt-1 border-t dark:border-[#2d3148]"><span>Total</span><span>৳{selectedOrder.total.toLocaleString()}</span></div>
               </div>
 
               {/* Payment */}
-              <div className="text-sm">
-                <span className="text-gray-500">Payment Method:</span> {selectedOrder.paymentMethod === "cod" ? "Cash on Delivery" : selectedOrder.paymentMethod}
+              <div className="text-sm dark:text-gray-300">
+                <span className="text-gray-500 dark:text-gray-400">Payment Method:</span> {selectedOrder.paymentMethod === "cod" ? "Cash on Delivery" : selectedOrder.paymentMethod}
               </div>
 
               {selectedOrder.notes && (
-                <div className="text-sm">
-                  <span className="text-gray-500">Notes:</span> {selectedOrder.notes}
+                <div className="text-sm dark:text-gray-300">
+                  <span className="text-gray-500 dark:text-gray-400">Notes:</span> {selectedOrder.notes}
                 </div>
               )}
             </div>

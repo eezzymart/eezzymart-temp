@@ -106,7 +106,7 @@ export default function BlogsPage() {
       </div>
 
       {/* Search */}
-      <div className="bg-white rounded-xl p-4 shadow-sm mb-4">
+      <div className="bg-white dark:bg-[#1a1d2e] rounded-xl p-4 shadow-sm mb-4">
         <div className="relative max-w-md">
           <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           <input
@@ -114,16 +114,16 @@ export default function BlogsPage() {
             placeholder="Search blog posts..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full pl-10 pr-4 py-2 border dark:border-[#2d3148] rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-[#141622] dark:text-gray-100"
           />
         </div>
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+      <div className="bg-white dark:bg-[#1a1d2e] rounded-xl shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="bg-gray-50">
+            <thead className="bg-gray-50 dark:bg-[#141622] dark:text-gray-400">
               <tr className="text-left">
                 <th className="px-4 py-3 font-medium">Title</th>
                 <th className="px-4 py-3 font-medium">Author</th>
@@ -140,7 +140,7 @@ export default function BlogsPage() {
                 <tr><td colSpan={6} className="text-center py-8 text-gray-400">No blog posts found</td></tr>
               ) : (
                 blogs.map((b) => (
-                  <tr key={b._id} className="border-t hover:bg-gray-50">
+                  <tr key={b._id} className="border-t dark:border-[#2d3148] hover:bg-gray-50 dark:hover:bg-[#252840]/50">
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
                         {b.image && <img src={b.image} alt="" className="w-10 h-10 rounded object-cover" />}
@@ -157,7 +157,7 @@ export default function BlogsPage() {
                         {b.isPublished ? "Published" : "Draft"}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-gray-500">{new Date(b.createdAt).toLocaleDateString()}</td>
+                    <td className="px-4 py-3 text-gray-500 dark:text-gray-400">{new Date(b.createdAt).toLocaleDateString()}</td>
                     <td className="px-4 py-3">
                       <div className="flex gap-2">
                         <button onClick={() => handleEdit(b)} className="text-blue-500 hover:bg-blue-50 p-1.5 rounded"><FiEdit2 size={16} /></button>
@@ -175,12 +175,12 @@ export default function BlogsPage() {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between p-6 border-b">
-              <h3 className="text-lg font-semibold">{editing ? "Edit Blog Post" : "Add Blog Post"}</h3>
+          <div className="bg-white dark:bg-[#1a1d2e] rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between p-6 border-b dark:border-[#2d3148]">
+              <h3 className="text-lg font-semibold dark:text-gray-100">{editing ? "Edit Blog Post" : "Add Blog Post"}</h3>
               <button onClick={() => setShowModal(false)}><FiX size={20} /></button>
             </div>
-            <form onSubmit={handleSubmit} className="p-6 space-y-4">
+            <form onSubmit={handleSubmit} className="p-6 space-y-4 dark:text-gray-300 dark:[&_input]:bg-[#141622] dark:[&_input]:border-[#2d3148] dark:[&_input]:text-gray-100 dark:[&_textarea]:bg-[#141622] dark:[&_textarea]:border-[#2d3148] dark:[&_textarea]:text-gray-100">
               <div>
                 <label className="block text-sm font-medium mb-1">Title</label>
                 <input type="text" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required />
@@ -215,8 +215,8 @@ export default function BlogsPage() {
                 <input type="checkbox" checked={form.isPublished} onChange={(e) => setForm({ ...form, isPublished: e.target.checked })} className="w-4 h-4 rounded text-primary" />
                 Publish immediately
               </label>
-              <div className="flex justify-end gap-3 pt-4 border-t">
-                <button type="button" onClick={() => setShowModal(false)} className="px-4 py-2 border rounded-lg hover:bg-gray-50">Cancel</button>
+              <div className="flex justify-end gap-3 pt-4 border-t dark:border-[#2d3148]">
+                <button type="button" onClick={() => setShowModal(false)} className="px-4 py-2 border dark:border-[#2d3148] rounded-lg hover:bg-gray-50 dark:hover:bg-[#252840] dark:text-gray-300">Cancel</button>
                 <button type="submit" disabled={saving} className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 disabled:opacity-50">
                   {saving ? "Saving..." : editing ? "Update" : "Create"}
                 </button>

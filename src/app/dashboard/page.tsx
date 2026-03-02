@@ -36,9 +36,9 @@ export default function DashboardPage() {
       <div className="space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="bg-white rounded-2xl p-6 animate-pulse">
-              <div className="h-4 bg-gray-100 rounded w-24 mb-3" />
-              <div className="h-8 bg-gray-100 rounded w-16" />
+            <div key={i} className="bg-white dark:bg-[#1a1d2e] rounded-2xl p-6 animate-pulse">
+              <div className="h-4 bg-gray-100 dark:bg-[#252840] rounded w-24 mb-3" />
+              <div className="h-8 bg-gray-100 dark:bg-[#252840] rounded w-16" />
             </div>
           ))}
         </div>
@@ -135,7 +135,7 @@ export default function DashboardPage() {
       {/* Stat Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {statCards.map((card) => (
-          <div key={card.label} className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow group">
+          <div key={card.label} className="bg-white dark:bg-[#1a1d2e] rounded-2xl p-5 shadow-sm border border-gray-100 dark:border-[#2d3148] hover:shadow-md transition-shadow group">
             <div className="flex items-start justify-between mb-4">
               <div className={`w-12 h-12 ${card.bg} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
                 <card.icon size={22} className={card.iconColor} />
@@ -147,19 +147,19 @@ export default function DashboardPage() {
                 {card.change}%
               </div>
             </div>
-            <p className="text-sm text-gray-500 mb-1">{card.label}</p>
-            <p className="text-2xl font-bold text-gray-900">{card.value}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">{card.label}</p>
+            <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{card.value}</p>
           </div>
         ))}
       </div>
 
       {/* Recent Orders */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-        <div className="p-6 border-b border-gray-100">
+      <div className="bg-white dark:bg-[#1a1d2e] rounded-2xl shadow-sm border border-gray-100 dark:border-[#2d3148] overflow-hidden">
+        <div className="p-6 border-b border-gray-100 dark:border-[#2d3148]">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-lg font-bold text-gray-900">Recent Orders</h3>
-              <p className="text-sm text-gray-500">Latest transactions from your store</p>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">Recent Orders</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Latest transactions from your store</p>
             </div>
             <a href="/dashboard/orders" className="text-sm text-[#ff165d] font-semibold hover:underline flex items-center gap-1">
               View All <FiArrowUpRight size={14} />
@@ -170,32 +170,32 @@ export default function DashboardPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-left bg-gray-50/50">
-                <th className="px-6 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wider">Order #</th>
-                <th className="px-6 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wider">Customer</th>
-                <th className="px-6 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wider">Amount</th>
-                <th className="px-6 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wider">Status</th>
-                <th className="px-6 py-3.5 font-semibold text-gray-500 text-xs uppercase tracking-wider">Date</th>
+              <tr className="text-left bg-gray-50/50 dark:bg-[#141622]">
+                <th className="px-6 py-3.5 font-semibold text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Order #</th>
+                <th className="px-6 py-3.5 font-semibold text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Customer</th>
+                <th className="px-6 py-3.5 font-semibold text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Amount</th>
+                <th className="px-6 py-3.5 font-semibold text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Status</th>
+                <th className="px-6 py-3.5 font-semibold text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Date</th>
               </tr>
             </thead>
             <tbody>
               {stats?.recentOrders && stats.recentOrders.length > 0 ? (
                 stats.recentOrders.map((order) => (
-                  <tr key={order._id} className="border-t border-gray-50 hover:bg-gray-50/50 transition">
-                    <td className="px-6 py-4 font-semibold text-gray-900">{order.orderNumber}</td>
+                  <tr key={order._id} className="border-t border-gray-50 dark:border-[#2d3148] hover:bg-gray-50/50 dark:hover:bg-[#252840]/50 transition">
+                    <td className="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">{order.orderNumber}</td>
                     <td className="px-6 py-4">
                       <div>
-                        <p className="font-medium text-gray-800">{order.customer?.name || "N/A"}</p>
-                        <p className="text-xs text-gray-400">{order.customer?.email}</p>
+                        <p className="font-medium text-gray-800 dark:text-gray-100">{order.customer?.name || "N/A"}</p>
+                        <p className="text-xs text-gray-400 dark:text-gray-500">{order.customer?.email}</p>
                       </div>
                     </td>
-                    <td className="px-6 py-4 font-semibold text-gray-900">৳{order.total?.toLocaleString()}</td>
+                    <td className="px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">৳{order.total?.toLocaleString()}</td>
                     <td className="px-6 py-4">
                       <span className={`px-2.5 py-1 rounded-lg text-xs font-semibold border ${statusColor(order.status)}`}>
                         {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-gray-500 text-xs">
+                    <td className="px-6 py-4 text-gray-500 dark:text-gray-400 text-xs">
                       {new Date(order.createdAt).toLocaleDateString("en-US", {
                         month: "short",
                         day: "numeric",

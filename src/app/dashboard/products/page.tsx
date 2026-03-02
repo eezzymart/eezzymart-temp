@@ -149,7 +149,7 @@ export default function ProductsPage() {
       </div>
 
       {/* Search */}
-      <div className="bg-white rounded-xl p-4 shadow-sm mb-4">
+      <div className="bg-white dark:bg-[#1a1d2e] rounded-xl p-4 shadow-sm mb-4">
         <div className="relative max-w-md">
           <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           <input
@@ -157,16 +157,16 @@ export default function ProductsPage() {
             placeholder="Search products..."
             value={search}
             onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-            className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full pl-10 pr-4 py-2 border dark:border-[#2d3148] rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-[#141622] dark:text-gray-100"
           />
         </div>
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+      <div className="bg-white dark:bg-[#1a1d2e] rounded-xl shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="bg-gray-50">
+            <thead className="bg-gray-50 dark:bg-[#141622] dark:text-gray-400">
               <tr className="text-left">
                 <th className="px-4 py-3 font-medium">Product</th>
                 <th className="px-4 py-3 font-medium">Price</th>
@@ -183,7 +183,7 @@ export default function ProductsPage() {
                 <tr><td colSpan={6} className="text-center py-8 text-gray-400">No products found</td></tr>
               ) : (
                 products.map((p) => (
-                  <tr key={p._id} className="border-t hover:bg-gray-50">
+                  <tr key={p._id} className="border-t dark:border-[#2d3148] hover:bg-gray-50 dark:hover:bg-[#252840]/50">
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
                         {p.images[0] && (
@@ -208,7 +208,7 @@ export default function ProductsPage() {
                     <td className="px-4 py-3">{p.stock}</td>
                     <td className="px-4 py-3">{(p.category as Category)?.name || "—"}</td>
                     <td className="px-4 py-3">
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${p.isActive ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}>
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${p.isActive ? "bg-green-100 text-green-700" : "bg-gray-100 dark:bg-[#252840] text-gray-500"}`}>
                         {p.isActive ? "Active" : "Inactive"}
                       </span>
                     </td>
@@ -227,14 +227,14 @@ export default function ProductsPage() {
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-between px-4 py-3 border-t text-sm">
-            <span className="text-gray-500">Total: {total} products</span>
+          <div className="flex items-center justify-between px-4 py-3 border-t dark:border-[#2d3148] text-sm">
+            <span className="text-gray-500 dark:text-gray-400">Total: {total} products</span>
             <div className="flex gap-1">
               {Array.from({ length: totalPages }, (_, i) => (
                 <button
                   key={i}
                   onClick={() => setPage(i + 1)}
-                  className={`px-3 py-1 rounded ${page === i + 1 ? "bg-primary text-white" : "hover:bg-gray-100"}`}
+                  className={`px-3 py-1 rounded ${page === i + 1 ? "bg-primary text-white" : "hover:bg-gray-100 dark:hover:bg-[#252840]"}`}
                 >
                   {i + 1}
                 </button>
@@ -247,12 +247,12 @@ export default function ProductsPage() {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between p-6 border-b">
-              <h3 className="text-lg font-semibold">{editing ? "Edit Product" : "Add Product"}</h3>
+          <div className="bg-white dark:bg-[#1a1d2e] rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between p-6 border-b dark:border-[#2d3148]">
+              <h3 className="text-lg font-semibold dark:text-gray-100">{editing ? "Edit Product" : "Add Product"}</h3>
               <button onClick={() => setShowModal(false)}><FiX size={20} /></button>
             </div>
-            <form onSubmit={handleSubmit} className="p-6 space-y-4">
+            <form onSubmit={handleSubmit} className="p-6 space-y-4 dark:text-gray-300 dark:[&_input]:bg-[#141622] dark:[&_input]:border-[#2d3148] dark:[&_input]:text-gray-100 dark:[&_textarea]:bg-[#141622] dark:[&_textarea]:border-[#2d3148] dark:[&_textarea]:text-gray-100 dark:[&_select]:bg-[#141622] dark:[&_select]:border-[#2d3148] dark:[&_select]:text-gray-100">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium mb-1">Product Name</label>
@@ -309,8 +309,8 @@ export default function ProductsPage() {
                 </div>
               </div>
 
-              <div className="flex justify-end gap-3 pt-4 border-t">
-                <button type="button" onClick={() => setShowModal(false)} className="px-4 py-2 border rounded-lg hover:bg-gray-50">Cancel</button>
+              <div className="flex justify-end gap-3 pt-4 border-t dark:border-[#2d3148]">
+                <button type="button" onClick={() => setShowModal(false)} className="px-4 py-2 border dark:border-[#2d3148] rounded-lg hover:bg-gray-50 dark:hover:bg-[#252840] dark:text-gray-300">Cancel</button>
                 <button type="submit" disabled={saving} className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 disabled:opacity-50">
                   {saving ? "Saving..." : editing ? "Update" : "Create"}
                 </button>
