@@ -12,11 +12,11 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Accept build-time environment variables for Next.js build
-ARG MONGODB_URI
-ARG JWT_SECRET
-ENV MONGODB_URI=${MONGODB_URI}
-ENV JWT_SECRET=${JWT_SECRET}
+# Public env vars needed at build time (baked into client JS)
+ARG NEXT_PUBLIC_SITE_URL=http://localhost:3000
+ARG NEXT_PUBLIC_SITE_NAME=EezzyMart
+ENV NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
+ENV NEXT_PUBLIC_SITE_NAME=${NEXT_PUBLIC_SITE_NAME}
 
 RUN npm run build
 
