@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import ProductCard from "../ProductCard";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
@@ -21,16 +21,43 @@ export default function FeaturedProducts() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch("/api/products?featured=true&limit=8")
+    fetch("/api/products?featured=true&limit=10")
       .then((r) => r.json())
       .then((d) => setProducts(d.products || []))
       .catch(() => {});
   }, []);
 
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!gridRef.current || products.length === 0) return;
+    const children = Array.from(gridRef.current.children) as HTMLElement[];
+    children.forEach((child) => {
+      child.style.opacity = "0";
+      child.style.transform = "translateY(30px)";
+      child.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    });
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          children.forEach((child, i) => {
+            setTimeout(() => {
+              child.style.opacity = "1";
+              child.style.transform = "translateY(0)";
+            }, i * 80);
+          });
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    obs.observe(gridRef.current);
+    return () => obs.disconnect();
+  }, [products]);
+
   if (products.length === 0) return null;
 
   return (
-    <section className="py-14 md:py-20 bg-white relative overflow-hidden">
+    <section className="py-14 md:py-20 bg-white dark:bg-[#0f1117] relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#ff165d]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#ff9a00]/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
@@ -40,7 +67,7 @@ export default function FeaturedProducts() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
           <div>
             <span className="inline-block text-[#ff165d] text-sm font-semibold tracking-widest uppercase mb-3">Handpicked for You</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
               Featured Products
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-[#ff165d] to-[#ff9a00] rounded-full mt-4" />
@@ -55,7 +82,7 @@ export default function FeaturedProducts() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
           {products.map((product) => (
             <ProductCard key={product._id} product={product} />
           ))}

@@ -29,9 +29,9 @@ export default function ProductCard({ product }: { product: Product }) {
   const rating = product.ratings || 4.5;
 
   return (
-    <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 relative">
+    <div className="group bg-white dark:bg-[#1a1d2e] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-800 relative">
       {/* Image Container */}
-      <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
         <Link href={`/product/${product.slug}`}>
           {product.images?.[0] ? (
             <Image
@@ -123,7 +123,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
         {/* Name */}
         <Link href={`/product/${product.slug}`}>
-          <h3 className="font-semibold text-sm text-gray-800 line-clamp-2 mb-2 group-hover:text-[#ff165d] transition-colors leading-snug min-h-[2.5rem]">
+          <h3 className="font-semibold text-sm text-gray-800 dark:text-gray-200 line-clamp-2 mb-2 group-hover:text-[#ff165d] transition-colors leading-snug min-h-[2.5rem]">
             {product.name}
           </h3>
         </Link>

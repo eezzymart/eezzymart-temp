@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import ProductCard from "../ProductCard";
 import Link from "next/link";
 import { FiArrowRight, FiStar } from "react-icons/fi";
@@ -21,16 +21,43 @@ export default function NewArrivals() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch("/api/products?sort=-createdAt&limit=8")
+    fetch("/api/products?sort=-createdAt&limit=10")
       .then((r) => r.json())
       .then((d) => setProducts(d.products || []))
       .catch(() => {});
   }, []);
 
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!gridRef.current || products.length === 0) return;
+    const children = Array.from(gridRef.current.children) as HTMLElement[];
+    children.forEach((child) => {
+      child.style.opacity = "0";
+      child.style.transform = "translateY(30px)";
+      child.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    });
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          children.forEach((child, i) => {
+            setTimeout(() => {
+              child.style.opacity = "1";
+              child.style.transform = "translateY(0)";
+            }, i * 80);
+          });
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    obs.observe(gridRef.current);
+    return () => obs.disconnect();
+  }, [products]);
+
   if (products.length === 0) return null;
 
   return (
-    <section className="py-14 md:py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+    <section className="py-14 md:py-20 bg-gradient-to-b from-white to-gray-50 dark:from-[#0f1117] dark:to-[#141622] relative overflow-hidden">
       {/* Decorative */}
       <div className="absolute top-20 left-0 w-72 h-72 bg-[#ff9a00]/5 rounded-full blur-[100px]" />
 
@@ -42,7 +69,7 @@ export default function NewArrivals() {
               <FiStar className="text-[#ff9a00]" size={20} />
               <span className="text-[#ff9a00] text-sm font-semibold tracking-widest uppercase">Just In</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
               New Arrivals
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-[#ff9a00] to-[#ff165d] rounded-full mt-4" />
@@ -57,7 +84,7 @@ export default function NewArrivals() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
           {products.map((product) => (
             <ProductCard key={product._id} product={product} />
           ))}
