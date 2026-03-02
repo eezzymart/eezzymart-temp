@@ -73,7 +73,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-5">
-              <Image src="/logo-color-trimmed.png" alt="EezzyMart" width={180} height={50} className="h-12 w-auto brightness-0 invert" />
+              <Image src="/Vector-white.png" alt="EezzyMart" width={180} height={50} className="h-12 w-auto" />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-sm">
               Your one-stop online shop for electronics, fashion, home essentials, beauty products, and more. Shop with confidence and enjoy fast delivery across Bangladesh.

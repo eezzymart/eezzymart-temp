@@ -161,7 +161,7 @@ export default function Header() {
 
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/logo-color-trimmed.png"
+              src={isDark ? "/Vector-white.png" : "/logo-color-trimmed.png"}
               alt="EezzyMart"
               width={200}
               height={56}
@@ -370,7 +370,7 @@ export default function Header() {
           <div className="absolute inset-0 bg-black/60" onClick={() => setMenuOpen(false)} />
           <div className="absolute left-0 top-0 bottom-0 w-80 max-w-[85vw] bg-white dark:bg-[#1a1d2e] shadow-2xl overflow-y-auto animate-slide-in-right">
             <div className="flex items-center justify-between p-4 border-b border-gray dark:border-[#2d3148] bg-gray-light dark:bg-[#141622]">
-              <Image src="/logo-color-trimmed.png" alt="EezzyMart" width={140} height={36} className="h-8 w-auto" />
+              <Image src={isDark ? "/Vector-white.png" : "/logo-color-trimmed.png"} alt="EezzyMart" width={140} height={36} className="h-8 w-auto" />
               <button onClick={() => setMenuOpen(false)} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray transition"><FiX size={20} /></button>
             </div>
             <div className="p-4 bg-gradient-to-r from-primary to-primary-dark text-white">
