@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  eezzymart:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MONGODB_URI: ${MONGODB_URI}
+        JWT_SECRET: ${JWT_SECRET}
+    container_name: eezzymart
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=${MONGODB_URI}
+      - JWT_SECRET=${JWT_SECRET}
+    networks:
+      - eezzymart-network
+
+networks:
+  eezzymart-network:
+    driver: bridge
+    driver: bridge
