@@ -16,7 +16,38 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "EezzyMart - Your One-Stop Online Shop",
-  description: "Shop quality products at unbeatable prices. Fast delivery, easy returns, and amazing deals at EezzyMart.",
+  description:
+    "Shop quality products at unbeatable prices. Fast delivery, easy returns, and amazing deals at EezzyMart.",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
+  openGraph: {
+    title: "EezzyMart - Your One-Stop Online Shop",
+    description:
+      "Shop quality products at unbeatable prices. Fast delivery, easy returns, and amazing deals at EezzyMart.",
+    url: "https://eezzymart.com",
+    siteName: "EezzyMart",
+    images: [
+      {
+        url: "https://eezzymart.com/logo-color-trimmed.png",
+        width: 1200,
+        height: 630,
+        alt: "EezzyMart Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EezzyMart - Your One-Stop Online Shop",
+    description:
+      "Shop quality products at unbeatable prices. Fast delivery, easy returns, and amazing deals at EezzyMart.",
+    images: ["https://eezzymart.com/logo-color-trimmed.png"],
+  },
+  metadataBase: new URL("https://eezzymart.com"),
 };
 
 export default function RootLayout({
