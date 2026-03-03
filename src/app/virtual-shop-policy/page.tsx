@@ -54,7 +54,7 @@ export default function VirtualShopPolicyPage() {
 
         <section>
           <h2 className="text-xl font-bold text-foreground mb-3">10. Contact Us</h2>
-          <p>For questions about our Virtual Shop Policy or platform operations, please contact us at support@eezzymart.com or visit our corporate office at 3/A 3/B, House - Prantik, Road-29, Mohakhali DOHS, Dhaka.</p>
+          <p>For questions about our Virtual Shop Policy or platform operations, please contact us at support@eezzymart.com or visit our corporate office at Prantik, Floor: 3A & 3B, House No: 412, Road No: 29, Mohakhali DOHS, Dhaka</p>
         </section>
       </div>
     </div>

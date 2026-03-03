@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
 
         <section>
           <h2 className="text-xl font-bold text-foreground mb-3">10. Policy Updates &amp; Contact</h2>
-          <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of significant changes by posting the updated policy on this page and updating the &quot;Last Updated&quot; date. We encourage you to review this policy periodically. For questions or concerns, contact us at support@eezzymart.com or write to us at 3/A 3/B, House - Prantik, Road-29, Mohakhali DOHS, Dhaka.</p>
+          <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of significant changes by posting the updated policy on this page and updating the &quot;Last Updated&quot; date. We encourage you to review this policy periodically. For questions or concerns, contact us at support@eezzymart.com or write to us at Prantik, Floor: 3A & 3B, House No: 412, Road No: 29, Mohakhali DOHS, Dhaka</p>
         </section>
       </div>
     </div>

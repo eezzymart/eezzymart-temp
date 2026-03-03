@@ -39,7 +39,7 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div className="space-y-4">
               {[
-                { icon: FiMapPin, title: "Address", info: "3/A 3/B, House - Prantik, Road-29, Mohakhali DOHS, Dhaka", gradient: "from-[#ff165d] to-[#ff4d82]" },
+                { icon: FiMapPin, title: "Address", info: "Prantik, Floor: 3A & 3B, House No: 412, Road No: 29, Mohakhali DOHS, Dhaka", gradient: "from-[#ff165d] to-[#ff4d82]" },
                 { icon: FiPhone, title: "Phone", info: "01711034971", gradient: "from-[#ff9a00] to-amber-400" },
                 { icon: FiMail, title: "Email", info: "support@eezzymart.com", gradient: "from-emerald-500 to-teal-400" },
                 { icon: FiClock, title: "Business Hours", info: "Mon - Fri: 9AM - 6PM\nSat - Sun: 10AM - 4PM", gradient: "from-violet-500 to-purple-500" },

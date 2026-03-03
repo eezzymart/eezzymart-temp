@@ -97,7 +97,7 @@ export default function Footer() {
                 <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center">
                   <FiMapPin size={16} className="text-emerald-400" />
                 </div>
-                3/A 3/B, House - Prantik, Road-29, Mohakhali DOHS, Dhaka
+                Prantik, Floor: 3A & 3B, House No: 412, Road No: 29, Mohakhali DOHS, Dhaka
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center">
