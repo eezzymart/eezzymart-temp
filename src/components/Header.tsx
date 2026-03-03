@@ -124,7 +124,7 @@ export default function Header() {
           <div className="hidden sm:flex items-center gap-4">
             <span className="flex items-center gap-1.5 hover:text-white transition-colors">
               <FiPhone size={12} className="text-[#ff165d]" />
-              +880 1234-567890
+              01711034971
             </span>
             <span className="flex items-center gap-1.5 hover:text-white transition-colors">
               <FiMapPin size={12} className="text-[#ff9a00]" />

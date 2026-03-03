@@ -39,7 +39,7 @@ export default function ReturnPolicyPage() {
 
         <section>
           <h2 className="text-xl font-bold text-foreground mb-3">7. Exceptions &amp; Contact</h2>
-          <p>Certain categories — including electronics with broken seals, beauty products that have been opened, undergarments, and gift cards — have specific return conditions or may be non-returnable. Please check the product page for category-specific return policies. For any questions about returns or refunds, contact us at support@eezzymart.com or call us at +880 1234-567890. Our return support team is available Saturday–Thursday, 9AM–6PM (BST).</p>
+          <p>Certain categories — including electronics with broken seals, beauty products that have been opened, undergarments, and gift cards — have specific return conditions or may be non-returnable. Please check the product page for category-specific return policies. For any questions about returns or refunds, contact us at support@eezzymart.com or call us at 01711034971. Our return support team is available Saturday–Thursday, 9AM–6PM (BST).</p>
         </section>
       </div>
     </div>

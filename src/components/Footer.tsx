@@ -85,7 +85,7 @@ export default function Footer() {
                 <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-[#ff165d]/10 transition">
                   <FiPhone size={16} className="text-[#ff165d]" />
                 </div>
-                +880 1234-567890
+                01711034971
               </a>
               <a href="mailto:support@eezzymart.com" className="flex items-center gap-3 text-sm hover:text-[#ff165d] transition-colors group">
                 <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-[#ff165d]/10 transition">
